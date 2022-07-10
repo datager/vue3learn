@@ -1,0 +1,12 @@
+<div>
+  <h1 id="app"></h1>
+  <input type="text" id="todo-input" />
+</div>
+<script src="jquery.min.js"></script>
+<script>
+  // 找到输入框, 监听输入
+  $("#todo-input").on("input", function () {
+    let val = $(this).val(); // 获取值
+    $("#app").html(val); // 找到标签, 修改内容
+  });
+</script>

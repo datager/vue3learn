@@ -1,0 +1,20 @@
+<div id="app">
+  <h2>{{title}}</h2>
+  <input type="text" v-model="title" />
+  <ul>
+    <li v-for="todo in todos">{{todo}}</li>
+  </ul>
+</div>
+
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+  const App = {
+    data() {
+      return {
+        title: "",
+        todos: ["吃饭", "睡觉"],
+      };
+    },
+  };
+  Vue.createApp(App).mount("#app");
+</script>
