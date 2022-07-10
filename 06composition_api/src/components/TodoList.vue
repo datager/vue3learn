@@ -14,14 +14,22 @@
             <span>{{ active }}/{{ all }}</span>
         </div>
     </div>
+    <div>
+        <h1 @click="add">{{ count }}</h1>
+    </div>
 </template>
 
 <script setup>
 import { computed } from "@vue/reactivity";
 import { ref } from "vue";
+import { useMouse } from '../utils/mouse'
+let { x, y } = useMouse();
+
 let count = ref(1);
+let color = ref('yellow');
 function add() {
     count.value++
+    color.value = Math.random() > 0.5 ? "blue" : "red";
 }
 
 let { title, todos, addTodo, clear, active, all, allDone } = useTodos();
@@ -57,8 +65,8 @@ function useTodos() {
 }
 </script>
 
-<style>
+<style scoped>
 h1 {
-    color: red;
+    color: v-bind(color);
 }
 </style>
